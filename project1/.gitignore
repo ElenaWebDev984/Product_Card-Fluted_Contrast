@@ -1,0 +1,8 @@
+.idea
+debug.log
+.log
+.lock
+.tmp
+.DS_Store
+Thumbs.db
+**/logs
