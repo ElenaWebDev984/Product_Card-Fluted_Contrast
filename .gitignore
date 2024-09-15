@@ -5,3 +5,4 @@ debug.log
 .tmp
 .DS_Store
 Thumbs.db
+**/logs
