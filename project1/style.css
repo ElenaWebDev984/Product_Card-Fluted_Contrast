@@ -1,0 +1,229 @@
+* {
+    margin: 0; /* внешние отступы */  
+    padding: 0; /* внутренние отступы */
+    box-sizing: border-box; /* границы и внутренние отступы теперь не увеличивают размер элементов */
+}
+
+body {
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+    line-height: normal;
+}
+
+section {
+    background: #eff2f9; /* цвет фона */
+    height: 100vh; /* высота = высоте окна браузера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 1170px; /* ширина */
+    height: 800px; /* высота */
+    background: #fff; /* цвет фона */
+    box-shadow: 20px 20px 40px 0px rgba(81, 91, 117, 0.25); /* тень, значения: сдвиг-x | сдвиг-y | размытие | растяжение | цвет */
+    padding: 60px 0 70px; /* внутренние отступы - сверху | по бокам | снизу */
+    display: flex;
+}
+
+.product-image-block {
+    /* задаем границу справа */
+    border-right: 2px solid rgba(20, 20, 20, 0.15); /* значения - толщина | тип | цвет  */
+    /* задаем этому блоку ширину, как в макете, чтобы линия появилась на своем месте */
+    min-width: 540px;
+    display: flex;
+    flex-direction: column;  /* меняем направление главной оси на вертикальное */
+}
+
+.main-image-wrapper {
+    flex-grow: 1;  /* будет занимать все свободное пространство в своем родителе */
+ 
+    /* выравниваем главное изображение горизонтально и вертикально по центру */
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.previews-wrapper {
+    display: flex;
+    justify-content: center;  /* выравниваем горизонтально по центру */
+    gap: 60px;  /* отступ между элементами */
+}
+
+.preview {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;  /* выравниваем горизонтально по центру */
+    align-items: center;  /* выравниваем вертикально по центру */
+    cursor: pointer; /* курсор меняется на пальчик */
+    transition: 0.2s; /* добавим немного плавности */
+}
+
+.preview:hover, 
+.preview.selected {
+    box-shadow: 8px 8px 16px 0px rgba(81, 91, 117, 0.25); /* тень, значения: сдвиг-x | сдвиг-y | размытие | растяжение | цвет */
+}
+
+.product-info-block {
+    padding: 0 60px; /* внутренний отступ, значения: верх+низ | лево+право */
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    color: #141414; /* цвет текста */
+    font-family: Montserrat; /* семейство шрифтов */
+    font-size: 38px; /* размер шрифта */
+     /* стиль шрифта */
+    font-weight: 700; /* толщина (жирность) */
+     /* высота строки */
+    letter-spacing: 0.38px; /* межбуквенное расстояние */
+}
+ 
+.subtitle {
+    color: rgba(20, 20, 20, 0.40);
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.16px;
+    margin-bottom: 60px;
+}
+ 
+.text {
+    color: rgba(20, 20, 20, 0.70);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px; 
+    letter-spacing: 0.18px;
+    margin-bottom: 65px;
+}
+
+.title {
+    color: rgba(20, 20, 20, 0.40);
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.16px;
+    text-transform: uppercase;  /* все буквы заглавные (caps) */
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;  /* тип маркера (убираем заданные браузером по умолчанию)*/
+}
+
+/* Цветные кружки - это будут теги <div>, а белые с тенью (выбранный) - теги <li>. */
+
+.color-items {
+    display: flex;
+    align-items: center;
+    gap: 40px; 
+}
+
+.color-items > li {
+    /* При наведении на него, будет появляться белый кружок с тенью, как у выбранного */
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.color-items > li:hover,
+.color-items > li.selected {
+    box-shadow: 2px 2px 6px 0px rgba(81, 91, 117, 0.25);
+}
+
+.circle {
+    width: 16px;
+    height: 16px;
+    filter: drop-shadow(2px 2px 4px rgba(81, 91, 117, 0.25));  /* тень с повторением контура фигуры, значения: сдвиг-x | сдвиг-y | размытие | цвет */
+    border-radius: 50%; /* скругление углов чтобы сделать из квадрата круг*/
+}
+
+.colors {
+    margin-bottom: 65px;
+}
+
+.blue {
+    background-color: #013C7D;
+}
+.green {
+    background-color: #63CBA7;
+}
+.red {
+    background-color: #D52F29;
+}
+.black {
+    background-color: #141414;
+}
+.yellow {
+    background-color: #F2C723;
+}
+
+li.selected {
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    box-shadow: 2px 2px 6px 0px rgba(81, 91, 117, 0.25);
+    border-radius: 50%;
+} 
+
+.wrapper {
+    display: flex;
+}
+
+.wrapper > div {
+    flex-grow: 1;
+}
+
+.quantity {
+    font-family: inherit;
+    width: 80px; /* ширина выпадающего списка */
+ 
+    /* стили для текста выпадающего списка*/
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(20, 20, 20, 0.8);
+ 
+    border: none; /* убираем границу */
+    appearance: none; /* убираем стрелку, которую браузер отображает по умолчанию */
+ 
+    /* устанавливаем свою стрелку */
+    background-image: url("./assets/images/ph_caret-down-bold.svg");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%; 
+    cursor: pointer;
+}
+
+.price {
+    color: rgba(20, 20, 20, 0.80);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+} 
+
+.btn {
+    /* свойства для формы */
+    height: 70px;
+    width: 100%;
+    background: #141414;
+ 
+    /* свойства для текста внутри кнопки */
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal
+    letter-spacing: 0.18px;
+    margin-top: 75px;
+    cursor: pointer;
+    transition: 0.2s;
+}  
+ 
+.btn:hover {
+    transform: translateY(-5px);
+}
